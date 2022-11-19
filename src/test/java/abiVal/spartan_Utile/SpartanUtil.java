@@ -1,13 +1,12 @@
-package abiVal.spartanUtile;
+package abiVal.spartan_Utile;
 
 import abiVal.POJO.Spartan;
 import com.github.javafaker.Faker;
-import io.cucumber.java.it.Ma;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class Spartan_Util {
+public class SpartanUtil {
     public static  Faker faker = new Faker();
     /*Used to get valid Ma Obj to represent post body
     *@return Map obj with random name, gender,phone(5000000000 - 1000000000000)
