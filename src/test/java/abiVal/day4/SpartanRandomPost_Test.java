@@ -50,7 +50,7 @@ public class SpartanRandomPost_Test extends SpartanNoAuthtestBaseclass {
                 .log().all()
                 .body("data.name",is(randomPOJO.getName()))
                 .body("data.gender",is(randomPOJO.getGender()))
-                .body("data.phone",is(randomPOJO.getPhone()));
+               ;
 
 
     }
