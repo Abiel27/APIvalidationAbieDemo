@@ -10,6 +10,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.Map;
 
+import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -98,5 +99,28 @@ public class SpartanRandomPost_Test extends SpartanNoAuthtestBaseclass {
 
 
     }
+    @DisplayName("POST /spartans then GET IT TO VERIFY 3 WITH EXTRACT METHOD")
+    @Test
+    public void testAddOneDataThenExtractHeader(){
+        //check statuse code 201 and extract location header
+        Spartan randomPOJO = SpartanUtil.getRandomSpartanPOJO();
+        String locationHeader = given()
+                .log().all()
+                .contentType(ContentType.JSON)
+                .body(randomPOJO).
+        when()
+                .post("/spartans").
+        then()
+                .statusCode(201).
+        extract()
+                .header("Location");
+        System.out.println("locationHeader = " + locationHeader);
+
+        //sending for request using above url which is extracted
+        get(locationHeader).prettyPeek();
+
+
+    }
+
 
     }
