@@ -4,6 +4,7 @@ package abiVal.LibraryAooTest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 
@@ -19,5 +20,10 @@ public class libraryAppTest {
     @AfterAll
     public static void cleanUp(){
         reset();
+    }
+    @DisplayName("test POST /login")
+    @Test
+    public void testLogin(){
+
     }
 }
